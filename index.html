@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    .wrapper {
+        height: 100vh;
+        display: flex;
+        background: linear-gradient(purple, #6c5ce7);
+        font-size: 16px;
+        color: white;
+    }
+
+    .box {
+        width: 450px;
+        margin: auto;
+        padding: 0px 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .heading h2 {
+        letter-spacing: 3.5px;
+        font-size: xx-large;
+        margin: 25px 0px;
+    }
+
+    .head-choice {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .head-choice button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 2px 4px;
+    }
+
+    #your-weather-btn {
+        /* background-color: rgba(255, 255, 255, 0.612); */
+        background-color: #96B6C5;
+    }
+    .screen-one
+    {
+        display: 'block';
+    }
+
+    .info {
+        margin: 25px 0px 0px;
+    }
+
+    .location h2 {
+        letter-spacing: 2px;
+    }
+    .icon-head h4
+    {
+        letter-spacing: 1.3px;
+    }
+
+    .temprature {
+        margin: 10px 0px;
+    }
+
+    .cards {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin: 40px 0px 0px;
+    }
+
+    .one,
+    .two,
+    .three {
+        /* background-color: rgba(255, 255, 255, 0.612); */
+        background-color: #f0edd44c;
+        width: 130px;
+        padding: 13px 0px;
+        border-radius: 5px;
+    }
+
+    .one h4,
+    .two h4,
+    .three h4 {
+        letter-spacing: 1.2px;
+    }
+
+    .screen-two {
+        display: none;
+        height: 274px;
+    }
+    .screen-three
+    {
+        display: none;
+    }
+    .search-bar
+    {
+        margin: 40px 0px;
+        display: flex;
+        align-items: center;
+    }
+    .search-bar input
+    {
+        background-color: rgba(70, 58, 58, 0.211);
+        border: none;
+        outline: none;
+        width: 350px;
+        height:  35px;
+        border-radius: 20px;
+        color: white;
+        padding: 5px 0px 5px 15px;
+        font-size: medium;
+    }
+    .search-bar input::placeholder { 
+  color: rgba(255, 255, 255, 0.496);
+}
+    .search-bar p
+    {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: rgba(70, 58, 58, 0.468);
+        margin-left: 10px;
+        padding: 2px 0px 0px;
+    }
+
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <div class="heading">
+                <h2>WEATHER APP </h2>
+            </div>
+
+            <div class="head-choice">
+                <button id="your-weather-btn">Your Weather</button>
+                <button id="search-btn">Search Weather</button>
+            </div>
+
+            <div class="screen screen-one info">
+                <div class="location">
+                    <h2>dummy</h2>
+                </div>
+                <div class="icon-head">
+                    <h4>clouds</h4>
+                </div>
+                <div class="temprature">
+                    <h2>dummy</h2>
+                </div>
+                <div class="cards">
+                    <div class="one">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                <path
+                                    d="M10.5 17H4V15H10.5C12.433 15 14 16.567 14 18.5C14 20.433 12.433 22 10.5 22C8.99957 22 7.71966 21.0559 7.22196 19.7293L9.09513 19.0268C9.30843 19.5954 9.85696 20 10.5 20C11.3284 20 12 19.3284 12 18.5C12 17.6716 11.3284 17 10.5 17ZM5 11H18.5C20.433 11 22 12.567 22 14.5C22 16.433 20.433 18 18.5 18C16.9996 18 15.7197 17.0559 15.222 15.7293L17.0951 15.0268C17.3084 15.5954 17.857 16 18.5 16C19.3284 16 20 15.3284 20 14.5C20 13.6716 19.3284 13 18.5 13H5C3.34315 13 2 11.6569 2 10C2 8.34315 3.34315 7 5 7H13.5C14.3284 7 15 6.32843 15 5.5C15 4.67157 14.3284 4 13.5 4C12.857 4 12.3084 4.40463 12.0951 4.97317L10.222 4.27073C10.7197 2.94414 11.9996 2 13.5 2C15.433 2 17 3.567 17 5.5C17 7.433 15.433 9 13.5 9H5C4.44772 9 4 9.44772 4 10C4 10.5523 4.44772 11 5 11Z">
+                                </path>
+                            </svg></span>
+                        <h4>WINDSPEED</h4>
+                        <p>dummy</p>
+                    </div>
+                    <div class="two">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                <path
+                                    d="M7.05025 8.04673L12 3.09698L16.9497 8.04673C19.6834 10.7804 19.6834 15.2126 16.9497 17.9462C14.2161 20.6799 9.78392 20.6799 7.05025 17.9462C4.31658 15.2126 4.31658 10.7804 7.05025 8.04673ZM18.364 6.63252L12 0.268555L5.63604 6.63252C2.12132 10.1472 2.12132 15.8457 5.63604 19.3604C9.15076 22.8752 14.8492 22.8752 18.364 19.3604C21.8787 15.8457 21.8787 10.1472 18.364 6.63252ZM16.2427 10.1714L14.8285 8.75718L7.7574 15.8282L9.17161 17.2425L16.2427 10.1714ZM8.11095 11.232C8.69674 11.8178 9.64648 11.8178 10.2323 11.232C10.8181 10.6463 10.8181 9.69652 10.2323 9.11073C9.64648 8.52494 8.69674 8.52494 8.11095 9.11073C7.52516 9.69652 7.52516 10.6463 8.11095 11.232ZM15.8891 16.8889C15.3033 17.4747 14.3536 17.4747 13.7678 16.8889C13.182 16.3031 13.182 15.3534 13.7678 14.7676C14.3536 14.1818 15.3033 14.1818 15.8891 14.7676C16.4749 15.3534 16.4749 16.3031 15.8891 16.8889Z">
+                                </path>
+                            </svg></span>
+                        <h4>HUMIDITY</h4>
+                        <p>dummy</p>
+                    </div>
+                    <div class="three">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                <path
+                                    d="M17 7C13.5705 7 10.6449 9.15804 9.50734 12.1903L11.3805 12.8927C12.2337 10.6185 14.4278 9 17 9C17.6983 9 18.3687 9.11928 18.992 9.33857C21.3265 10.16 23 12.3846 23 15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15C1 12.3846 2.67346 10.16 5.00804 9.33857C5.0027 9.22639 5 9.11351 5 9C5 5.13401 8.13401 2 12 2C15.242 2 17.9693 4.20399 18.7652 7.19539C18.1973 7.0675 17.6065 7 17 7Z">
+                                </path>
+                            </svg></span>
+                        <h4>CLOUDS</h4>
+                        <p>dummy</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="screen screen-two">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search location">
+                    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg></p>
+                </div>
+                <div class="screen screen-three info">
+                    <div class="location">
+                        <h2>dummy</h2>
+                    </div>
+                    <div class="icon-head">
+                        <h4>clouds</h4>
+                    </div>
+                    <div class="temprature">
+                        <h2>dummy</h2>
+                    </div>
+                    <div class="cards">
+                        <div class="one">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                    <path
+                                        d="M10.5 17H4V15H10.5C12.433 15 14 16.567 14 18.5C14 20.433 12.433 22 10.5 22C8.99957 22 7.71966 21.0559 7.22196 19.7293L9.09513 19.0268C9.30843 19.5954 9.85696 20 10.5 20C11.3284 20 12 19.3284 12 18.5C12 17.6716 11.3284 17 10.5 17ZM5 11H18.5C20.433 11 22 12.567 22 14.5C22 16.433 20.433 18 18.5 18C16.9996 18 15.7197 17.0559 15.222 15.7293L17.0951 15.0268C17.3084 15.5954 17.857 16 18.5 16C19.3284 16 20 15.3284 20 14.5C20 13.6716 19.3284 13 18.5 13H5C3.34315 13 2 11.6569 2 10C2 8.34315 3.34315 7 5 7H13.5C14.3284 7 15 6.32843 15 5.5C15 4.67157 14.3284 4 13.5 4C12.857 4 12.3084 4.40463 12.0951 4.97317L10.222 4.27073C10.7197 2.94414 11.9996 2 13.5 2C15.433 2 17 3.567 17 5.5C17 7.433 15.433 9 13.5 9H5C4.44772 9 4 9.44772 4 10C4 10.5523 4.44772 11 5 11Z">
+                                    </path>
+                                </svg></span>
+                            <h4>WINDSPEED</h4>
+                            <p>dummy</p>
+                        </div>
+                        <div class="two">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                    <path
+                                        d="M7.05025 8.04673L12 3.09698L16.9497 8.04673C19.6834 10.7804 19.6834 15.2126 16.9497 17.9462C14.2161 20.6799 9.78392 20.6799 7.05025 17.9462C4.31658 15.2126 4.31658 10.7804 7.05025 8.04673ZM18.364 6.63252L12 0.268555L5.63604 6.63252C2.12132 10.1472 2.12132 15.8457 5.63604 19.3604C9.15076 22.8752 14.8492 22.8752 18.364 19.3604C21.8787 15.8457 21.8787 10.1472 18.364 6.63252ZM16.2427 10.1714L14.8285 8.75718L7.7574 15.8282L9.17161 17.2425L16.2427 10.1714ZM8.11095 11.232C8.69674 11.8178 9.64648 11.8178 10.2323 11.232C10.8181 10.6463 10.8181 9.69652 10.2323 9.11073C9.64648 8.52494 8.69674 8.52494 8.11095 9.11073C7.52516 9.69652 7.52516 10.6463 8.11095 11.232ZM15.8891 16.8889C15.3033 17.4747 14.3536 17.4747 13.7678 16.8889C13.182 16.3031 13.182 15.3534 13.7678 14.7676C14.3536 14.1818 15.3033 14.1818 15.8891 14.7676C16.4749 15.3534 16.4749 16.3031 15.8891 16.8889Z">
+                                    </path>
+                                </svg></span>
+                            <h4>HUMIDITY</h4>
+                            <p>dummy</p>
+                        </div>
+                        <div class="three">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36">
+                                    <path
+                                        d="M17 7C13.5705 7 10.6449 9.15804 9.50734 12.1903L11.3805 12.8927C12.2337 10.6185 14.4278 9 17 9C17.6983 9 18.3687 9.11928 18.992 9.33857C21.3265 10.16 23 12.3846 23 15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15C1 12.3846 2.67346 10.16 5.00804 9.33857C5.0027 9.22639 5 9.11351 5 9C5 5.13401 8.13401 2 12 2C15.242 2 17.9693 4.20399 18.7652 7.19539C18.1973 7.0675 17.6065 7 17 7Z">
+                                    </path>
+                                </svg></span>
+                            <h4>CLOUDS</h4>
+                            <p>dummy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    let your_weather_btn = document.querySelector("#your-weather-btn");
+    let search_btn = document.querySelector("#search-btn");
+
+    //screens contains - [.screen-one ,.screen-two , .screen-three]
+    let screens=document.querySelectorAll(".screen");
+
+    let search_icon=document.querySelector(".search-bar p");
+
+    // [screen-one , screen-three] - temprature ,weather and location
+    let locat_screens=document.querySelectorAll(".location h2");
+    let weather_screens=document.querySelectorAll(".icon-head h4");
+    let temp_screens=document.querySelectorAll(".temprature h2");
+    
+    
+    //cards_yours - [windspeed,humidity,clouds]
+    let cards_yours=document.querySelectorAll(".screen-one .cards p");
+    let cards_searched=document.querySelectorAll(".screen-three .cards p");
+
+    let input_value=document.querySelector(".search-bar input");
+
+    let API_key="a28bf24ad9b0570276e2087d0b29b227";
+    var lat,longi;
+
+    async function getLocation()
+    {
+        if(navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(await showPosition);
+        }
+        else
+        {
+            console.log("no geolocation support");
+        }
+    }
+    function showPosition(position)
+    {
+        lat =position.coords.latitude;
+        longi= position.coords.longitude;
+        console.log(lat,longi)
+        // return async (lat,longi) => {
+        //     let response =await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${longi}&appid=${API_key}`);
+        // };
+    }
+    getLocation();
+    
+    //for screen-one 
+    setTimeout(() => {window.onload = () => {
+        showWeather("jaipur",locat_screens[0],weather_screens[0],temp_screens[0],cards_yours[0],cards_yours[1],cards_yours[2],`https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${26.8894208}&lon=${75.7825536}&appid=${"fc088393170c87baeff619ecb2fe1b3b"}`);
+    }},0);
+
+    your_weather_btn.onclick= () =>
+    {
+        your_weather_btn.style.backgroundColor="rgba(255, 255, 255, 0.612)";
+        search_btn.style.backgroundColor = "transparent";
+        screens[0].style.display="block";
+        screens[1].style.display="none";
+        screens[2].style.display="none";
+    }
+
+    search_btn.onclick= () =>
+    {
+        your_weather_btn.style.backgroundColor="transparent";
+        search_btn.style.backgroundColor = "rgba(255, 255, 255, 0.612)";
+        screens[0].style.display="none";
+        screens[1].style.display="block";
+        screens[1].style.height="274px";
+        screens[2].style.display="none";
+    }
+
+    search_icon.onclick=() => 
+    {
+        //screen-three display
+        screens[0].style.display="none";
+        screens[1].style.display="block";
+        screens[1].style.height="auto";
+        screens[2].style.display="block";
+        showWeather(input_value.value,locat_screens[1],weather_screens[1],temp_screens[1],cards_searched[0],cards_searched[1],cards_searched[2],`https://api.openweathermap.org/data/2.5/weather?q=${input_value.value}&appid=${API_key}`);
+    }
+
+    
+    async function showWeather(city,location,weather,temp,windspeed,humid,cloud,api)
+    {   
+        const response= await fetch(api);
+        
+        console.log(response);
+        
+        const data =await response.json();
+        
+        console.log(data);
+        console.log(`${data?.main?.temp.toFixed(2)}° c`);
+        
+        location.textContent=data.name;
+        weather.textContent=`${data.weather[0].main}`;
+        temp.textContent= `${data?.main?.temp.toFixed(2)}° c`;
+
+        //cards value
+        windspeed.textContent= `${data.wind.speed}m/s`;
+        humid.textContent = `${data.main.humidity}%`;
+        cloud.textContent = `${data.clouds.all}%`;
+
+        console.log(`${data.wind.speed}`)
+        console.log(`${data.main .humidity}`);
+        console.log(`${data.clouds.all}`);
+
+    }
+    
+
+    
+
+</script>
+
+</html>
