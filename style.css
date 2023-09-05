@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(purple, #6c5ce7);
+    font-size: 16px;
+    color: white;
+}
+
+.box {
+    width: 450px;
+    margin: auto;
+    padding: 0px 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.heading h2 {
+    letter-spacing: 3.5px;
+    font-size: xx-large;
+    margin: 25px 0px;
+}
+
+.head-choice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-choice button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 2px 4px;
+}
+
+#your-weather-btn {
+    /* background-color: rgba(255, 255, 255, 0.612); */
+    background-color: #96B6C5;
+}
+
+.screen-one {
+    display: 'block';
+}
+
+.info {
+    margin: 25px 0px 0px;
+}
+
+.location h2 {
+    letter-spacing: 2px;
+}
+
+.icon-head h4 {
+    letter-spacing: 1.3px;
+}
+
+.temprature {
+    margin: 10px 0px;
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 40px 0px 0px;
+}
+
+.one,
+.two,
+.three {
+    /* background-color: rgba(255, 255, 255, 0.612); */
+    background-color: #f0edd44c;
+    width: 130px;
+    padding: 13px 0px;
+    border-radius: 5px;
+}
+
+.one h4,
+.two h4,
+.three h4 {
+    letter-spacing: 1.2px;
+}
+
+.screen-two {
+    display: none;
+    height: 274px;
+}
+
+.screen-three {
+    display: none;
+}
+
+.search-bar {
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    background-color: rgba(70, 58, 58, 0.211);
+    border: none;
+    outline: none;
+    width: 350px;
+    height: 35px;
+    border-radius: 20px;
+    color: white;
+    padding: 5px 0px 5px 15px;
+    font-size: medium;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.496);
+}
+
+.search-bar p {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgba(70, 58, 58, 0.468);
+    margin-left: 10px;
+    padding: 2px 0px 0px;
+}
